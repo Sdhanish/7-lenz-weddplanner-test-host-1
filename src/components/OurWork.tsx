@@ -1,7 +1,9 @@
+"use client";
+
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { portfolioItems } from "../data";
-import { Play, X, ChevronLeft, ChevronRight, Eye, Plus, Film, Loader2 } from "lucide-react";
+import { Play, X, ChevronLeft, ChevronRight, Eye, Plus, Film, Loader as Loader2 } from "lucide-react";
 import { PortfolioItem } from "../types";
 
 export default function OurWork() {

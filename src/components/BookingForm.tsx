@@ -1,9 +1,11 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowLeft, ArrowRight, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, CircleCheck as CheckCircle2, CircleAlert as AlertCircle, Loader as Loader2 } from "lucide-react";
 import { BookingEnquiry } from "../types";
 import { businessConfig } from "../data";
 

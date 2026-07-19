@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import ElegantLoader from "./components/ElegantLoader";
 import Navbar from "./components/Navbar";
@@ -13,18 +15,23 @@ import FloatingWhatsApp from "./components/FloatingWhatsApp";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
-  
+  const [mounted, setMounted] = useState(false);
+
   // Theme state: default to light theme (white) or saved localStorage value
-  const [darkMode, setDarkMode] = useState<boolean>(() => {
+  const [darkMode, setDarkMode] = useState<boolean>(false);
+
+  // Read persisted theme after mount to avoid SSR/CSR hydration mismatch
+  useEffect(() => {
+    setMounted(true);
     const saved = localStorage.getItem("7lenz-theme");
     if (saved) {
-      return saved === "dark";
+      setDarkMode(saved === "dark");
     }
-    return false; // Default to light theme (white) for a bright, clean initial presentation
-  });
+  }, []);
 
   // Sync dark class on document root
   useEffect(() => {
+    if (!mounted) return;
     const root = window.document.documentElement;
     if (darkMode) {
       root.classList.add("dark");
@@ -33,7 +40,7 @@ export default function App() {
       root.classList.remove("dark");
       localStorage.setItem("7lenz-theme", "light");
     }
-  }, [darkMode]);
+  }, [darkMode, mounted]);
 
   return (
     <>
@@ -42,7 +49,7 @@ export default function App() {
 
       {/* Main App Layout */}
       {!loading && (
-        <div 
+        <div
           id="app-root-container"
           className="min-h-screen bg-white dark:bg-black text-stone-900 dark:text-stone-100 font-sans theme-transition selection:bg-amber-500/25 relative"
         >

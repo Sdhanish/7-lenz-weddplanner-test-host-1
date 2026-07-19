@@ -1,9 +1,11 @@
+"use client";
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { motion, AnimatePresence } from "motion/react";
-import { Phone, Mail, MapPin, Instagram, Facebook, CheckCircle2, Loader2, AlertCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram, Facebook, CircleCheck as CheckCircle2, Loader as Loader2, CircleAlert as AlertCircle } from "lucide-react";
 import { businessConfig } from "../data";
 
 const contactSchema = z.object({

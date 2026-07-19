@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";

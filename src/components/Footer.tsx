@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Instagram, Facebook } from "lucide-react";

@@ -1,3 +1,5 @@
+"use client";
+
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "motion/react";
 import { useEffect, useState, useRef } from "react";
 import { businessConfig, testimonials } from "../data";
